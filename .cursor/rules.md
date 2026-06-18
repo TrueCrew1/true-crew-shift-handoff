@@ -10,6 +10,37 @@ execution. The first deliverable is a shift handover / passdown tool that grows 
 broader True Crew SaaS platform (customer records, crew records, scheduling, field
 execution, clock in/out, reminders, invoicing/QuickBooks, support lifecycle, inventory).
 
+## Recommended stack baseline
+
+- App: Next.js (App Router).
+- Auth + DB: Supabase Auth + Postgres.
+- Authorization: app-level RBAC plus database-aware security patterns (e.g. Postgres RLS).
+- Hosting default: Vercel first; Netlify as fallback for special cases.
+- Public site and portal entry: Wix remains separate from the main app runtime.
+
+## Workflow layers
+
+Keep these four layers separate; never nest one inside another.
+
+1. `.cursor/rules.md` — standing project behavior and contract (this file).
+2. `01_bootstrap_prompt.md` — fresh-chat startup prompt only. Use when starting a new chat
+   or re-entering the repo after context loss. Not a build prompt.
+3. `02_wrapper_control_prompt.md` — task control prompt. Use before every build,
+   verification, repair, or stabilization phase. Not a phase prompt.
+4. Phase prompts — the actual work order for a single phase. Not a substitute for this file.
+
+### Usage order — new chat
+1. Ensure `.cursor/rules.md` exists and is up to date.
+2. Paste `01_bootstrap_prompt.md`; let the agent inspect the repo and summarize readiness.
+3. Paste `02_wrapper_control_prompt.md`.
+4. Paste one build or verification prompt.
+5. Review the output manually before moving on.
+
+### Usage order — existing active chat
+1. Do not repeat the bootstrap prompt unless context was lost or work is restarting.
+2. Paste `02_wrapper_control_prompt.md`.
+3. Paste one build, verification, repair, or final stabilization prompt.
+
 ## Locked build order
 
 Build stable foundations first. Do not work out of order.
