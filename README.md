@@ -1,5 +1,4 @@
-# cm-painting
-cm-painting-softwar
+
 # True Crew Shift Handover Tool
 
 A premium shift handover and passdown tool built for operations, maintenance, and field-service teams.
