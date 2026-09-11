@@ -1,0 +1,66 @@
+{
+  "$schema": "https://raw.githubusercontent.com/TrueCrew1/Engineer-standard/be1ddd6e27e4f6441b0c3ee4619360c14a3fd754/schemas/engineering-manifest.schema.json",
+  "schemaVersion": 2,
+  "standard": {
+    "version": "1.0.0",
+    "commit": "be1ddd6e27e4f6441b0c3ee4619360c14a3fd754"
+  },
+  "repository": {
+    "id": "TrueCrew1/true-crew-shift-handoff",
+    "productionBranch": "main",
+    "trueCrewOwned": true,
+    "framework": "concept-reference"
+  },
+  "business": {
+    "role": "experiment",
+    "lifecycle": "experimental",
+    "commercialPriority": 15,
+    "customerFacing": true,
+    "productFamily": "True Crew Resources",
+    "revenueModel": "experimental",
+    "targetIcp": [
+      "field-service owners and supervisors",
+      "industrial operations supervisors"
+    ]
+  },
+  "market": {
+    "mode": "required",
+    "problem": "Field and industrial supervisors may need a simpler structured shift-handoff resource, but the repository is still an experiment rather than a proven product.",
+    "evidenceStage": "hypothesis",
+    "evidenceRefs": [
+      ".truecrew/market-evidence.json"
+    ],
+    "disconfirmingSignal": "Qualified target operators consistently report the problem is low-value or already solved well enough by existing workflows.",
+    "nextValidationGate": "Collect privacy-safe operator evidence and measurable outcome data before raising the evidence stage.",
+    "primaryBusinessOutcome": "activation"
+  },
+  "risk": {
+    "level": "medium",
+    "domains": [
+      "privacy",
+      "marketing-claims"
+    ]
+  },
+  "quality": {
+    "profile": "premium-experience",
+    "guardrailCommand": "git diff --check",
+    "verificationCommands": [
+      "git diff --check"
+    ]
+  },
+  "telemetry": {
+    "mode": "required",
+    "privacyRule": "Collect only the minimum first-party operational outcome metadata needed for governance and value measurement; never record secrets or sensitive customer content.",
+    "outcomes": []
+  },
+  "ai": {
+    "preflightRequired": true,
+    "productionMutationRequiresExplicitApproval": true,
+    "prohibitedActions": [
+      "reveal-secrets",
+      "weaken-security-gates",
+      "modify-unrelated-work"
+    ]
+  },
+  "exceptions": []
+}
